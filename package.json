@@ -1,0 +1,19 @@
+{
+    "name": "react",
+    "version": "0.0.1",
+    "description": "learn to create react, from 0 to 1",
+    "author": "aolyang",
+    "scripts": {
+        "lint": "eslint --ext .js,.ts,.jsx,.tsx --fix --quiet ./packages"
+    },
+    "keywords": [],
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^6.1.0",
+        "@typescript-eslint/parser": "^6.1.0",
+        "eslint": "^8.45.0",
+        "eslint-config-prettier": "^8.8.0",
+        "eslint-plugin-prettier": "^5.0.0",
+        "prettier": "^3.0.0",
+        "typescript": "^5.1.6"
+    }
+}
