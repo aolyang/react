@@ -25,5 +25,6 @@
         "no-constant-condition": "off",
         "@typescript-eslint/ban-ts-comment": "off",
         "@typescript-eslint/consistent-type-imports": "error"
+
     }
 }

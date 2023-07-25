@@ -1,7 +1,10 @@
 import type { ReactElement } from "./jsx"
 import { defaultElement } from "./jsx"
+import { add } from "shared"
 
 export const element: ReactElement = {
     $$typeof: "node"
 }
-export { defaultElement }
+const addValue = add(1, 2)
+
+export { defaultElement, addValue }
