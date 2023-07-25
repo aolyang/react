@@ -1,10 +1,6 @@
-import type { ReactElement } from "./jsx"
-import { defaultElement } from "./jsx"
-import { add } from "shared"
+import { jsx } from "./src/jsx"
 
-export const element: ReactElement = {
-    $$typeof: "node"
+export default {
+    version: "18.0.0",
+    createElement: jsx
 }
-const addValue = add(1, 2)
-
-export { defaultElement, addValue }
