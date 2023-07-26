@@ -1,5 +1,6 @@
-import ts from "rollup-plugin-typescript2"
 import cjs from "@rollup/plugin-commonjs"
+import ts from "rollup-plugin-typescript2"
+import generatePackageJson from "rollup-plugin-generate-package-json"
 
 /**
  * @param {...string} paths
@@ -9,11 +10,31 @@ const resolve = (...paths) =>
 
 const resolveInput = (path) => resolve("packages", path)
 const resolveOutput = (path) => resolve("dist", path)
+
 export default [
     // react package rollup option
     {
         input: resolveInput("react/index.ts"),
-        plugins: [ts(), cjs()],
+        plugins: [
+            ts(),
+            cjs(),
+            generatePackageJson({
+                inputFolder: resolveInput("react"),
+                outputFolder: resolveOutput("react"),
+                baseContents: ({ name, version, author, license }) => {
+                    return {
+                        name,
+                        version,
+                        author,
+                        license,
+                        main: "index.js",
+                        module: "index.js",
+                        types: "index.d.ts",
+                        sideEffects: false
+                    }
+                }
+            })
+        ],
         output: {
             file: resolveOutput("react/index.js"),
             name: "index.js",
